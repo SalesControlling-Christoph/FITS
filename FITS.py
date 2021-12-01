@@ -14,6 +14,7 @@ class User:
                  r"Database=TestDB;Uid=Daniel;pwd=SCIO-123!#;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30"
         self.engine = sa.create_engine("mssql+pyodbc:///?odbc_connect=%s" % params, echo=False, fast_executemany=True)
         self.connection = self.engine.connect()
+        print("connected")
 
     def get_new_values(self):
         # Liest die aktuellen Daten aus dem Excel File

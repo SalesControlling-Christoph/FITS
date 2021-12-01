@@ -20,6 +20,17 @@ class Update:
             updated = new
             for index, value in enumerate(updated):
                 value.append(str(datetime.datetime.now()))
+
+        elif len(old) < len(new):
+            for index, value in enumerate(new):
+                for i, v, in enumerate(old):
+                    if value != v:
+                        print(value, v)
+                        print(i)
+
+        elif len(new) < len(old):
+            pass
+
         else:
             for index, value in enumerate(new):
                 for i, v, in enumerate(old):
@@ -51,7 +62,7 @@ class Update:
 
 if __name__ == '__main__':
     u = Update()
-    old = []
+    old = [["Hallo"], ["Hallo"]]
     new = [["Hallo"], ["Hallo"], ["Hallo"]]
     updated, row = u.get_update(old, new)
     print(updated, row)
